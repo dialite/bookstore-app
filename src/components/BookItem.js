@@ -8,11 +8,8 @@ function BookItem() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!bookStore.length) {
-      dispatch(getBooks());
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch(getBooks());
+  }, [dispatch]);
 
   const handleRemove = (id) => {
     dispatch(removeBook(id));
