@@ -1,0 +1,50 @@
+.account-icon {
+  padding: 9px 12px;
+  border: 1px solid #c9c9c9;
+  border-radius: 50%;
+}
+
+.user-icon {
+  font-size: 15px;
+  color: #0290ff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-bar {
+  padding: 24px 4%;
+  background-color: white;
+  border-bottom: solid 1px #e8e8e8;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-brand {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #0290ff;
+}
+
+.nav-links {
+  display: flex;
+  flex-grow: 1;
+  list-style-type: none;
+  gap: 40px;
+}
+
+.nav-link {
+  opacity: 0.5;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.813rem;
+  color: #121212;
+  letter-spacing: 1.9px;
+}
+
+.active-link {
+  opacity: 1;
+  color: #121212;
+}
