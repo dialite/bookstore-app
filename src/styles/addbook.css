@@ -1,0 +1,71 @@
+:root {
+  --font-family-primary: 'Montserrat', sans-serif;
+}
+
+form {
+  margin-top: 20px;
+  border-top: 1px solid rgb(214, 214, 214);
+  padding: 10px 0 50px 0;
+}
+
+.add-form {
+  height: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-span {
+  font-family: var(--font-family-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.input {
+  font-family: var(--font-family-primary);
+  width: 30%;
+  height: 1.75rem;
+  border-radius: 4px;
+  padding: 1.8px 1%;
+  font-weight: 600;
+  color: black;
+  border: solid 1px rgba(148, 148, 148, 0.801);
+  letter-spacing: -0.15px;
+}
+
+.input:focus {
+  outline-color: rgb(88, 88, 88);
+}
+
+.selector {
+  font-family: var(--font-family-primary);
+  height: 2.1rem;
+  border-radius: 4px;
+  background-color: #fff;
+  border: solid 1px rgba(148, 148, 148, 0.801);
+  color: rgb(65, 65, 65);
+}
+
+.selector > option:not(:disabled) {
+  color: #000;
+  font-weight: 600;
+}
+
+.add-form > button {
+  width: 11.5rem;
+  height: 2.1rem;
+  cursor: pointer;
+  color: azure;
+  border: none;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-family: 'RobotoSlab', sans-serif;
+  font-size: 0.813rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.add-form > button:hover {
+  background-color: #036cbd;
+}

@@ -1,54 +1,68 @@
-import { ADD_NEW_BOOK, REMOVE_BOOK, GET_BOOKS_API } from '../types';
-import ApiServices from '../../services/Api.services';
+import * as api from '../../api/api';
+import '../../styles/book.css';
 
-const defualtBooks = [];
+const ADD_BOOK = 'BookStores/books/ADD_BOOK';
+const REMOVE_BOOK = 'BookStores/books/REMOVE_BOOK';
+const GET_BOOKS = 'BookStores/books/GET_BOOKS';
 
-export function getBooksAPI(books) {
-  const APIBooks = Object.entries(books).map(([key, value]) => ({ ...value[0], id: key }));
-  return {
-    type: GET_BOOKS_API,
-    payload: APIBooks,
-  };
-}
+const handleData = (data) => {
+  const books = [];
+  const keys = Object.keys(data);
 
-export const bookFromAPI = () => async (dispatch) => {
-  const response = await ApiServices.getBooks();
-  dispatch(getBooksAPI(response));
+  keys.forEach((key, index) => {
+    const book = data[keys[index]];
+    book[0].item_id = key;
+
+    books.push(book[0]);
+  });
+
+  return books;
 };
 
-export function addNewBook(newBook) {
-  return {
-    type: ADD_NEW_BOOK,
-    payload: newBook,
-  };
-}
+// This shows how to implement Action Creators
+export const getBooks = () => async (dispatch) => {
+  try {
+    const data = await api.fetchBooks();
 
-export const addNewBooks = (newBook) => async (dispatch) => {
-  await ApiServices.addBook(newBook);
-  dispatch(addNewBook({ ...newBook, id: newBook.item_id }));
-};
-
-export function removeBook(bookId) {
-  return {
-    type: REMOVE_BOOK,
-    payload: bookId,
-  };
-}
-
-export const removeBooks = (id) => async (dispatch) => {
-  await ApiServices.removeBook(id);
-  dispatch(removeBook(id));
-};
-
-export default function reducerBook(initialState = defualtBooks, action) {
-  switch (action.type) {
-    case ADD_NEW_BOOK:
-      return [...initialState, action.payload];
-    case REMOVE_BOOK:
-      return [...initialState.filter((book) => (book.id !== action.payload))];
-    case GET_BOOKS_API:
-      return [...action.payload];
-    default:
-      return initialState;
+    dispatch({ type: GET_BOOKS, payload: handleData(data) });
+  } catch (error) {
+    throw new Error(error.message);
   }
-}
+};
+
+export const addBook = (book) => async (dispatch) => {
+  try {
+    await api.postBook(book);
+
+    dispatch({ type: ADD_BOOK, payload: book });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+export const removeBook = (bookId) => async (dispatch) => {
+  try {
+    await api.deleteBook(bookId);
+
+    dispatch({ type: REMOVE_BOOK, payload: bookId });
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+// This code shows how Reducers are implemented
+
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case GET_BOOKS:
+      return action.payload;
+    case REMOVE_BOOK:
+      return state.filter((book) => book.item_id !== action.payload);
+    default:
+      return state;
+  }
+};
+// export default reducer;
+export default reducer;

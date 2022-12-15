@@ -1,0 +1,24 @@
+body {
+  background-color: #fafafa;
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  top: 115px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-list-container {
+  margin: 1rem 5%;
+}
