@@ -1,0 +1,54 @@
+.add-book {
+  color: #918f8f;
+  padding: 2rem 10%;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+}
+
+form input {
+  font-size: 1.8rem;
+  padding: 10px;
+  border: 2px solid #918f8f;
+  border-radius: 1rem;
+  margin-left: 10px;
+  width: 25%;
+  height: 5rem;
+}
+
+#category-select {
+  font-size: 1.8rem;
+  padding: 10px;
+  border: 2px solid #918f8f;
+  border-radius: 1rem;
+  margin-left: 10px;
+  width: 25%;
+  height: 5rem;
+}
+
+.add-btn {
+  border: none;
+  background: #0290ff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  width: 18%;
+  height: 5rem;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+@media (max-width: 600px) {
+  form input #category-select {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .add-btn {
+    width: 50%;
+    margin: 0 auto;
+  }
+}

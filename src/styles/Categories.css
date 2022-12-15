@@ -1,0 +1,24 @@
+.check {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.check button {
+  border: none;
+  background: #0290ff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 25rem;
+  height: 7rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.check h4 {
+  font-size: 4rem;
+}

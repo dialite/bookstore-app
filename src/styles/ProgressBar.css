@@ -1,0 +1,104 @@
+.circular {
+  height: 8rem;
+  width: 8rem;
+  position: relative;
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #d3d3d3;
+  border-radius: 100%;
+  clip: rect(0, 8rem, 8rem, 4rem);
+}
+
+.inner {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  height: 6.8rem;
+  width: 6.8rem;
+  background-color: white;
+  border-radius: 100%;
+  margin: -3.4rem 0 0 -3.4rem;
+}
+
+.progress {
+  background: linear-gradient(#307bbe, #379cf6);
+}
+
+.circle .bar .progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  clip: rect(0, 4rem, 8rem, 0);
+  background: #307bbe;
+  background: linear-gradient(#379cf6, #307bbe);
+}
+
+.circle .left .progress {
+  z-index: 1;
+}
+
+.circle .right {
+  transform: rotate(180deg);
+  z-index: 2;
+}
+
+.status-number {
+  margin-left: 2rem;
+}
+
+.number {
+  font-size: 3.5rem;
+  margin-bottom: 5px;
+}
+
+.status {
+  color: #121212;
+  opacity: 0.5;
+  font-size: 2rem;
+}
+
+.chapter-progress {
+  display: flex;
+  align-items: center;
+  padding-right: 8rem;
+  border-right: 2px solid #e8e8e8;
+  margin: 1rem 0;
+}
+
+.chapter {
+  display: flex;
+  align-items: center;
+}
+
+.chapter-info {
+  margin-left: 15px;
+}
+
+.chapter-info .title {
+  color: #121212;
+  letter-spacing: -0.5px;
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+.chapter-info .chapter-name {
+  font-size: 2rem;
+}
+
+.chapter-info button {
+  border: 1px solid #0290ff;
+  font-size: 1.7rem;
+  background: #0290ff;
+  cursor: pointer;
+  padding: 2rem 1.5rem;
+  border-radius: 5px;
+  color: #ccc;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
