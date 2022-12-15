@@ -1,14 +1,13 @@
-const CHECK = 'bookstore/Category/CHECK';
+import { CHECK_STATUS } from '../types';
 
-export function checkStatus() {
-  return { type: CHECK };
-}
+export const checkStatus = () => ({
+  type: CHECK_STATUS,
+});
 
-export default function reducer(state = '', action = {}) {
+export default function reducerCategories(state = [], action) {
   switch (action.type) {
-    case CHECK:
+    case CHECK_STATUS:
       return 'Under Construction';
-
     default:
       return state;
   }
