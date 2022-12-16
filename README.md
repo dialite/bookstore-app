@@ -37,7 +37,7 @@ alt="logo" width="140"  height="auto" />
 
 # 📖 Bookstore <a name="about-project"></a>
 
-> Bookstore project is a Single Page Application (SPA) created with React containing books and categories section that allows users to make list of books based on titles and author. It is simple and easy to use. Enjoy it!
+> Bookstore project is a Single Page Application (SPA) with linked API is created with React containing books and categories section that allows users to make list of books based on titles and author. It is simple and easy to use. Enjoy it!
 
 ## 🛠 Built With <a name="built-with"></a>
 

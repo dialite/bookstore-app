@@ -1,54 +1,53 @@
-import { ADD_NEW_BOOK, REMOVE_BOOK, GET_BOOKS_API } from '../types';
-import ApiServices from '../../services/Api.services';
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import API_URL from '../api';
 
-const defualtBooks = [];
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const FETCH_BOOKS = 'bookstore/books/FETCH_BOOKS';
 
-export function getBooksAPI(books) {
-  const APIBooks = Object.entries(books).map(([key, value]) => ({ ...value[0], id: key }));
-  return {
-    type: GET_BOOKS_API,
-    payload: APIBooks,
-  };
-}
+const initialState = [];
 
-export const bookFromAPI = () => async (dispatch) => {
-  const response = await ApiServices.getBooks();
-  dispatch(getBooksAPI(response));
-};
-
-export function addNewBook(newBook) {
-  return {
-    type: ADD_NEW_BOOK,
-    payload: newBook,
-  };
-}
-
-export const addNewBooks = (newBook) => async (dispatch) => {
-  await ApiServices.addBook(newBook);
-  dispatch(addNewBook({ ...newBook, id: newBook.item_id }));
-};
-
-export function removeBook(bookId) {
-  return {
-    type: REMOVE_BOOK,
-    payload: bookId,
-  };
-}
-
-export const removeBooks = (id) => async (dispatch) => {
-  await ApiServices.removeBook(id);
-  dispatch(removeBook(id));
-};
-
-export default function reducerBook(initialState = defualtBooks, action) {
+export default function books(state = initialState, action) {
   switch (action.type) {
-    case ADD_NEW_BOOK:
-      return [...initialState, action.payload];
-    case REMOVE_BOOK:
-      return [...initialState.filter((book) => (book.id !== action.payload))];
-    case GET_BOOKS_API:
-      return [...action.payload];
+    case 'bookstore/books/FETCH_BOOKS/fulfilled':
+      return action.payload.books;
+    case 'bookstore/books/ADD_BOOK/fulfilled':
+      return [...state, action.payload.book];
+    case 'bookstore/books/REMOVE_BOOK/fulfilled':
+      return state.filter((book) => book[0] !== action.payload.id);
     default:
-      return initialState;
+      return state;
   }
 }
+
+export const addBook = createAsyncThunk(ADD_BOOK, async (book) => {
+  await axios.post(`${API_URL}/books`, {
+    item_id: book.id,
+    category: book.category,
+    title: book.title,
+    author: book.author,
+  });
+  return {
+    book: [
+      book.id,
+      [
+        {
+          author: book.author,
+          title: book.title,
+          category: book.category,
+        },
+      ],
+    ],
+  };
+});
+
+export const removeBook = createAsyncThunk(REMOVE_BOOK, async (id) => {
+  await axios.delete(`${API_URL}/books/${id}`);
+  return { id };
+});
+
+export const fetchBooks = createAsyncThunk(FETCH_BOOKS, async () => {
+  const res = await axios.get(`${API_URL}/books`);
+  return { books: Object.entries(res.data) };
+});

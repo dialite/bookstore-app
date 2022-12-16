@@ -1,28 +1,25 @@
-.container {
-  padding: 4%;
-}
-
-.horizontal-divider {
-  height: 0.125rem;
-  background-color: #e8e8e8;
-  width: 100%;
-  margin: 2.5rem 0 1.813rem;
-}
-
-.check-status {
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.check-status-button {
-  width: 9%;
-  cursor: pointer;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
   border: none;
-  background-color: #0290ff;
-  border-radius: 3px;
-  padding: 8px 24px;
-  font-family: "Roboto Slab", serif;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  color: #fff;
+  outline: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafafa;
+  width: 100%;
+}
+
+.App {
+  width: 100%;
+  position: relative;
 }

@@ -1,0 +1,53 @@
+.book {
+  padding: 2rem 10%;
+}
+
+.book-container {
+  border: 1px solid #e8e8e8;
+  background: #fff;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.cate {
+  font-size: 2rem;
+  opacity: 0.5;
+  color: #1a1a1a;
+}
+
+.title {
+  color: #121212;
+  letter-spacing: -0.5px;
+  font-size: 3.5rem;
+}
+
+.author {
+  color: #85a7c5;
+  font-weight: 100;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-control {
+  display: flex;
+  align-items: center;
+}
+
+.btn-control button {
+  border: none;
+  background: transparent;
+  color: #85a7c5;
+  margin-right: 10px;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.divider {
+  width: 2px;
+  height: 25px;
+  background: #e8e8e8;
+  margin-right: 10px;
+}
