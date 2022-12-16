@@ -28,6 +28,7 @@ alt="logo" width="140"  height="auto" />
     - [Usage](#usage)
     - [Run tests](#run-tests)
   - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
@@ -158,6 +159,14 @@ To run tests, run the following command:
 - GitHub: [dialite](https://github.com/dialite)
 - Twitter: [@raymondolisa01](https://twitter.com/raymondolisa01)
 - LinkedIn: [raymond-olisa](https://www.linkedin.com/in/raymond-olisa-775929243/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+## 🔭 Future Features <a name="future-features"></a>
+
+- **[Check Book Categories]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
